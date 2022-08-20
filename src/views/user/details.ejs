@@ -1,0 +1,69 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+
+<div class="wrapper">
+
+  <%- include('../partials/nav') -%>
+  <%- include('../partials/sidebar') -%>
+
+
+
+  <!-- details -->
+
+  <div class="content-wrapper d-flex justify-content-center align-items-center" style="min-height: 646px;">
+
+    <div class="col-md-5 ">
+      <div class="container ">
+
+
+
+
+        <div class="card card-primary ">
+          <div class="card-header">
+            <h3 class="card-title">Details</h3>
+          </div>
+
+          <div class="card-body">
+            <strong>Name</strong>
+            <p class="text-muted">
+              <%= foundUser.name %>
+            </p>
+            <hr>
+            <strong>Email</strong>
+            <p class="text-muted"><%= foundUser.email %></p>
+            <hr>
+            <strong>Tags</strong>
+            <p class="text-muted">Null</p>
+            <hr>
+            <strong>Status</strong>
+            <p class="text-muted">
+              <%if(foundUser.status == 3){ %>
+              Unverified
+              <% } %>
+
+              <%if(foundUser.status == 1){ %>
+              Verified
+              <% } %>
+
+              <%if(foundUser.status == 2){ %>
+              Blocked
+              <% } %>
+
+              <%if(foundUser.status == 0){ %>
+              Deleted
+              <% } %>
+            </p>
+            <hr>
+            <strong>Updated at</strong>
+            <p class="text-muted"><%= foundUser.updatedAt %></p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<%- include('../partials/footer') -%>

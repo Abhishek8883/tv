@@ -1,0 +1,123 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+    <div class="wrapper">
+
+      <%- include('../partials/nav') -%>
+      <%- include('../partials/sidebar') -%>
+
+       
+        <div class="content-wrapper" style="min-height: 646px;">
+
+            <div class="content-header mb-4">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Create Quiz</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content ">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="card card-info p-1" style="width: 70vw;">
+                            <div class="card-header">
+                                <h3 class="card-title">Create Quiz</h3>
+                            </div>
+
+
+                            <form action="<%=base_url%>/admin/quiz/create" method="post" class="form-horizontal" >
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Question</label>
+                                        <div class="col">
+                                            <input autocomplete="off" name="question" type="text" class="form-control" id="inputEmail3"
+                                                placeholder="Question">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Total Options</label>
+                                        <div class="col d-flex">
+                                            <input autocomplete="off" name="total_options" type="number" class="form-control" id="total_options"
+                                                placeholder="Enter total Options"  value="4">
+                                                <button id="options_value_btn" class="btn btn-primary ml-2" style="height: 40px;">Ok</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="options">
+  
+                                  </div>
+                                   </div>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Add</button>
+                                    <a href="./">
+                                    <button  class="btn btn-default float-right">Cancel</button>
+                                    </a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </aside>
+    </div>
+
+
+
+
+
+    <script>
+
+      let total_options = document.querySelector('#total_options')
+      let options = document.querySelector('#options')
+      let options_value_btn = document.querySelector('#options_value_btn')
+
+      let temp = ``
+
+      let getOptions = (e) => {
+        e.preventDefault()
+        if(Number(total_options.value) <= 6){
+
+        
+        for (let i = 0; i < Number(total_options.value); i++) {
+          temp += `<div class="form-group row">
+            <label for="inputEmail3" class="col-sm-3 col-form-label">Option${i+1}</label>
+            <div class="col">
+              <input autocomplete="off" name="option${i+1}" type="text" class="form-control" id="inputEmail3"
+                  placeholder="Option${i+1}">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio" value="option${i+1}">
+                    <label class="form-check-label">Correct</label>
+                    </div>
+          </div>
+        </div>`
+        }
+        options.innerHTML = temp
+        temp = ``
+      }
+      else{
+        alert("You can not add more than 6 options")
+        total_options.value = 6
+      }
+      }
+
+      options_value_btn.addEventListener('click',getOptions)
+
+    </script>
+    <%- include('../partials/footer') -%>

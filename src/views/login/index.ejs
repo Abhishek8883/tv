@@ -1,0 +1,45 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+<div class="login-page " style="min-height:100vh; ">
+<div class="login-box ">
+    <div class="login-logo">
+    <h2 > Admin Login</h2>
+    </div>  
+    <br>
+    <br>
+    
+    <div class="card ">
+    <div class="card-body login-card-body  ">
+    <p class="login-box-msg">Login to start your session</p>
+    <form action="<%=base_url%>/admin/login" method="post">
+    <div class="input-group mb-3">
+    <input autocomplete="off" name="username" type="text" class="form-control" placeholder="Email">
+    <div class="input-group-append">
+    <div class="input-group-text">
+    <span class="fas fa-envelope"></span>
+    </div>
+    </div>
+    </div>
+    <div class="input-group mb-3">
+    <input name="password" autocomplete="off" type="password" class="form-control" placeholder="Password">
+    <div class="input-group-append">
+    <div class="input-group-text">
+    <span class="fas fa-lock"></span>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+   
+    <div class="col-4">
+    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+    </div>
+    
+    </div>
+    </form>
+    </div>
+    
+    </div>
+    </div>
+</div>
+    <%- include('../partials/footer') -%>

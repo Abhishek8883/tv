@@ -1,0 +1,57 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+
+    <div class="wrapper">
+        <%- include('../partials/nav') -%>
+        <%- include('../partials/sidebar') -%>
+
+        <div class="content-wrapper d-flex flex-column justify-content-center align-items-center" style="min-height: 646px;">
+
+            <div class="col-md-5  ">
+                <div class="container ">
+          
+          
+          
+          
+                  <div class="card card-primary ">
+                    <div class="card-header">
+                      <h3 class="card-title">Feedback Details</h3>
+                      <a href="<%= base_url%>/admin/showFeedbacks/<%= page%>"><button class="btn btn-outline-light float-right">Back</button></a>
+                      
+                    </div>
+          
+                    <div class="card-body">
+                      <strong>Name</strong>
+                      <p class="text-muted">
+                        <%= feedback.User.name %>
+                      </p>
+                      <hr>
+                      <strong>Email</strong>
+                      <p class="text-muted"><%= feedback.User.email %></p>
+                      <hr>
+                      <strong>Title</strong>
+                      <p class="text-muted"><%= feedback.title%></p>
+                      <hr>
+                      <strong>Messege</strong>
+                      <p><%= feedback.messege %></p>
+                      <hr>
+                      <strong>Submitted on</strong>
+                      <p class="text-muted"><%= feedback.updatedAt %></p>
+                    </div>
+          
+                  </div>
+                </div>
+          
+              </div>
+
+
+
+
+        </div>
+
+
+        <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+        </aside>
+    </div>
+    <%- include('../partials/footer') -%>

@@ -1,0 +1,129 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+
+
+<div class="wrapper">
+
+  <%- include('../partials/nav') -%>
+  <%- include('../partials/sidebar') -%>
+
+
+  <div class="content-wrapper" style="min-height: 646px;">
+
+    <div class="content-header mb-4">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Create Advertisement</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content ">
+      <div class="container-fluid" style="width: 80vw;">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Create Advertisement</h3>
+          </div>
+
+
+          <form method="post" action="<%= base_url%>/admin/ad/create" enctype="multipart/form-data">
+
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Title</label>
+                <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Ad Type</label>
+                <select name="adType" id="adType" class="form-control custom-select">
+                  <option selected value="0">Text </option>
+
+                  <option value="1">Video</option>
+                  <option value="2">Image</option>
+
+                </select>
+              </div>
+
+
+
+              <div id="box" class="form-group">
+                <label for="exampleInputEmail1">Content</label>
+                <input name="content" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Content">
+
+              </div>
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+</div>
+
+
+<script>
+  let type = document.querySelector('#adType')
+  let box = document.querySelector('#box')
+  
+  
+  let getFilename = () => {
+    let file = document.querySelector("#uploadfile")
+    let fileNameLabel = document.querySelector("#fileNameLabel")
+    file.addEventListener('change',() => {
+      let fileName = file.files[0].name
+      fileNameLabel.innerHTML = fileName
+    })
+  }
+
+  let temp = ``
+
+  let getOptions = (e) => {
+    e.preventDefault()
+    if (Number(type.value)) {
+
+      temp = `
+      <label  for="exampleInputFile">File input</label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input name="file" type="file" class="custom-file-input" id="uploadfile">
+          <label id="fileNameLabel" class="custom-file-label" for="exampleInputFile">Choose file</label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text">Upload</span>
+        </div>
+      </div>
+    </div>
+       `
+      box.innerHTML = temp
+      temp = ``
+      getFilename()
+    } else {
+      temp = `<label for="exampleInputEmail1">Content</label>
+      <input type="text" name="content" class="form-control" id="exampleInputEmail1" placeholder="Enter Content">`
+      box.innerHTML = temp
+      temp = ``
+    }
+  }
+
+  type.addEventListener('change', getOptions)
+</script>
+
+<%- include('../partials/footer') -%>

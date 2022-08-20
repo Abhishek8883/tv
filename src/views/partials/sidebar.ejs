@@ -1,0 +1,205 @@
+<% var base_url = process.env.base_url %>
+
+
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <div class="sidebar">
+
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0asqwSvPU4RVk6IBON33SXvgJel3Atmw4s_aV5-4YLA&s" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">The TV Talk</a>
+        </div>
+      </div>
+
+      <div class="form-inline">
+
+
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <% if(active === "dashboard"){ %>
+            <li id="dashboard" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/dashboard" class="nav-link">
+                <i class="fa-solid fa-gauge"></i>
+                <p>
+                  &nbsp;
+                  Dashboard
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+              <li id="dashboard" class="nav-item ">
+                <a href="<%=base_url%>/admin/dashboard" class="nav-link">
+                  <i class="fa-solid fa-gauge"></i>
+                  <p>
+                    &nbsp;
+                    Dashboard
+                  </p>
+                </a>
+              </li>
+              <% }  %>
+
+            <!-- users -->
+            <% if(active === "user"){ %>
+
+            <li id="user" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/showusers/1" class="nav-link">
+                <i class="fa-solid fa-users"></i>
+                <p>
+                  &nbsp;
+                  Users
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+              <li id="user" class="nav-item">
+                <a href="<%=base_url%>/admin/showusers/1" class="nav-link">
+                  <i class="fa-solid fa-users"></i>
+                  <p>
+                    &nbsp;
+                    Users
+                  </p>
+                </a>
+              </li>
+              <% }  %>
+
+
+            <!-- articles -->
+            <% if(active === "article"){ %>
+            <li id="article" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/articles" class="nav-link">
+                <i class="fa-solid fa-newspaper"></i>
+                <p>
+                  &nbsp;
+                  Articles
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+            <% }  %>
+
+
+
+            <!-- Notification -->
+            <% if(active === "notification"){ %>
+            <li id="notification" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/notification " class="nav-link">
+                <i class="fa-regular fa-bell"></i>
+                <p>
+                  &nbsp;
+                  Notification
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+              <li id="notification" class="nav-item">
+                <a href="<%=base_url%>/admin/notification " class="nav-link">
+                  <i class="fa-regular fa-bell"></i>
+                  <p>
+                    &nbsp;
+                    Notification
+                  </p>
+                </a>
+              </li>
+            <% }  %>
+
+
+
+            <!-- Feedback -->
+            <% if(active === "feedback"){ %>
+
+            <li id="feedback" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/showfeedbacks/1" class="nav-link">
+                <i class="fa-regular fa-comment"></i>
+                <p>
+                  &nbsp;
+                  Feedback
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+              <li id="feedback" class="nav-item ">
+                <a href="<%=base_url%>/admin/showfeedbacks/1" class="nav-link">
+                  <i class="fa-regular fa-comment"></i>
+                  <p>
+                    &nbsp;
+                    Feedback
+                  </p>
+                </a>
+              </li>
+            <% }  %>
+
+
+
+            <!-- quiz-->
+            <% if(active === "quiz"){ %>
+
+            <li id="quiz" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/quiz/showAll/1" class="nav-link">
+                <i class="fa-solid fa-question"></i>
+                <p>
+                  &nbsp;
+                  Quiz
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+              <li id="quiz" class="nav-item ">
+                <a href="<%=base_url%>/admin/quiz/showAll/1" class="nav-link">
+                  <i class="fa-solid fa-question"></i>
+                  <p>
+                    &nbsp;
+                    Quiz
+                  </p>
+                </a>
+              </li>
+            <% }  %>
+
+
+            
+            <!-- ads -->
+            <% if(active === "ad"){ %>
+
+            <li id="ad" class="nav-item menu-open">
+              <a href="<%=base_url%>/admin/ad/showAll/1" class="nav-link">
+                <i class="fa-solid fa-rectangle-ad "></i>
+                <p>
+                  &nbsp;
+                  Advertisement
+                </p>
+              </a>
+            </li>
+            <% }else{ %>
+              <li id="ad" class="nav-item ">
+                <a href="<%=base_url%>/admin/ad/showAll/1" class="nav-link">
+                  <i  class="fa-solid fa-rectangle-ad "></i>
+                  <p>
+                    &nbsp;
+                    Advertisement
+                  </p>
+                </a>
+              </li>
+            <% }  %>
+
+            <li id="logout" class="nav-item ">
+              <a href="<%=base_url%>/admin/logout" class="nav-link">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <p>
+                  &nbsp;
+                  Logout
+                </p>
+              </a>
+            </li>
+
+
+
+          </ul>
+
+          </ul>
+        </nav>
+
+      </div>
+
+</aside>

@@ -1,0 +1,137 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+    <div class="wrapper">
+
+      <%- include('../partials/nav') -%>
+      <%- include('../partials/sidebar') -%>
+       
+        <div class="content-wrapper" style="min-height: 646px;">
+
+            <div class="content-header mb-4">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Edit User</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content ">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center">
+                        <div class="card card-info p-1" style="width: 30vw;">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit User</h3>
+                            </div>
+
+
+                            <form action="<%=base_url%>/admin/edituser/<%=foundUser.id%>" method="post" class="form-horizontal" >
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Name</label>
+                                        <div class="col">
+                                            <input autocomplete="off" name="name" type="text" class="form-control" id="inputEmail3"
+                                                placeholder="Name" value="<%= foundUser.name %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col">
+                                            <input autocomplete="off" name="email" type="email" class="form-control" id="inputPassword3"
+                                                placeholder="Email" value="<%= foundUser.email %>">
+                                        </div>   
+                                    </div>
+
+                                    <div class="form-group row">
+                                      <label for="status" class="col-sm-3 col-form-label ">Status</label>
+                                      <div class="col">
+
+                                        <% if(foundUser.status == 0){ %>
+                                          <select name="status" id="status" class="form-control custom-select">
+                                            <option selected value="<%= foundUser.status%>">Deleted </option>
+                                            
+                                            <option value = "1">Active</option>
+                                            <option value = "2">Blocked</option>
+                                            <option value = "3">Unverified</option>
+                       
+                                        </select>
+                                        <% } %>
+                                        
+                                        <% if(foundUser.status == 1){ %>
+                                          <select name="status" id="status" class="form-control custom-select">
+                                            <option selected value="<%= foundUser.status%>">Active</option>
+                                            
+                                            <option value = "0">Deleted</option>
+                                            <option value = "2">Blocked</option>
+                                            <option value = "3">Unverified</option>
+                       
+                                        </select>
+                                        <% } %>
+
+                                        <% if(foundUser.status == 2){ %>
+                                          <select name="status" id="status" class="form-control custom-select">
+                                            <option selected value="<%= foundUser.status%>">Blocked</option>
+                                            
+                                            <option value = "0">Deleted</option>
+                                            <option value = "1">Active</option>
+                                            <option value = "3">Unverified</option>
+                       
+                                        </select>
+                                        <% } %>
+                                        
+                                        <% if(foundUser.status == 3){ %>
+                                          <select name="status" id="status" class="form-control custom-select">
+                                            <option selected value="<%= foundUser.status%>">Unverified</option>
+                                            
+                                            <option value = "0">Deleted</option>
+                                            <option value = "1">Active</option>
+                                            <option value = "2">Blocked</option>
+                       
+                                        </select>
+                                        <% } %>
+
+
+                                          
+
+
+                                      </div>
+                                  </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-3 col-form-label">Created at</label>
+                                        <div class="col">
+                                            <textarea rows="2" name="createdAt" type="text" class="form-control" id="inputPassword3"
+                                                placeholder="Created At" disabled><%= foundUser.createdAt %></textarea>
+                                        </div>
+                                    </div>
+                                   </div>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Edit</button>
+                                    <a href="/admin/showusers/1">
+                                    <button  class="btn btn-default float-right">Cancel</button>
+                                    </a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </aside>
+    </div>
+    <%- include('../partials/footer') -%>

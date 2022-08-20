@@ -1,0 +1,101 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+    <div class="wrapper">
+
+      <%- include('../partials/nav') -%>
+      <%- include('../partials/sidebar') -%>
+       
+        <div class="content-wrapper" style="min-height: 646px;">
+
+            <div class="content-header mb-4">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Edit Quiz</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content ">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center">
+                        <div class="card card-info p-1" style="width: 30vw;">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit Quiz</h3>
+                            </div>
+
+
+                            <form action="<%=base_url%>/admin/quiz/editquiz/<%=quiz.id%>" method="post" class="form-horizontal" >
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Question</label>
+                                        <div class="col">
+                                            <input autocomplete="off" name="question" type="text" class="form-control" id="inputEmail3"
+                                                placeholder="Name" value="<%= quiz.question %>">
+                                        </div>
+                                    </div>
+
+                                    <% quiz.Options.forEach((val,index) => { %>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">Option <%= index+1 %></label>
+                                            <div class="col">
+                                                <input autocomplete="off" name="option<%= index+1 %>" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="option<%= index+1 %>" value="<%= val.option %>">
+                                                    <% if(val.isCorrect){ %>
+                                                      <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio" value="option<%= index+1%>" checked>
+                                                        <label class="form-check-label">Correct</label>
+                                                        </div>
+                                                   <% }else{ %>
+                                                    <div class="form-check">
+                                                      <input class="form-check-input" type="radio" name="radio" value="option<%= index+1%>">
+                                                      <label class="form-check-label">Correct</label>
+                                                      </div>
+                                                  <% } %>
+                                                   
+                                            </div>
+                                        </div>
+                                   <% }) %>
+                                    
+                                    
+
+                                    
+
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-3 col-form-label">Created at</label>
+                                        <div class="col">
+                                            <textarea rows="2" name="createdAt" type="text" class="form-control" id="inputPassword3"
+                                                placeholder="Created At" disabled><%= quiz.createdAt %></textarea>
+                                        </div>
+                                    </div>
+                                   </div>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Edit</button>
+                                    <a href="/admin/showusers/1">
+                                    <button  class="btn btn-default float-right">Cancel</button>
+                                    </a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </aside>
+    </div>
+    <%- include('../partials/footer') -%>

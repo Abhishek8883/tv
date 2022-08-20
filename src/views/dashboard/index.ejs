@@ -1,0 +1,92 @@
+<%- include('../partials/header') -%>
+<% var base_url = process.env.base_url %>
+
+
+<div class="wrapper">
+
+
+<%- include('../partials/nav') -%>
+<%- include('../partials/sidebar') -%>
+
+
+  <div class="content-wrapper" style="min-height: 646px;">
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+
+
+        <!-- user -->
+        <div class="row mt-3">
+          <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%= count %></h3>
+                <p>Total Users </p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <a href="<%=base_url%>/admin/showusers/1" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+
+          <!-- quiz -->
+          <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><%= totalQuiz %></h3>
+                <p>Total Quiz</p>
+              </div>
+              <div class="icon">
+                <i class="fa-solid fa-question"></i>
+              </div>
+              <a href="<%=base_url%>/admin/quiz/showAll/1" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- feedback -->
+          <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><%= totalFeedback %></h3>
+                <p>Total Feedbacks</p>
+              </div>
+              <div class="icon">
+                <i class="fa-regular fa-comment"></i>
+              </div>
+              <a href="<%=base_url%>/admin/showfeedbacks/1" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+
+  <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+  </aside>
+</div>
+<%- include('../partials/footer') -%> 

@@ -1,0 +1,21 @@
+module.exports = {
+    DELETE:0,
+    ACTIVE:1,
+    INACTIVE:2,
+    UNVERIFIED:3,
+    UNAUTHORIZED:403,
+    INTERNAL_SERVER:500,
+    BAD_REQUEST : 400,
+    SUCCESS:200,
+    UPDATE:201,
+    IMAGE:2,
+    VIDEO:1,
+    TEXT:0,
+    GOOGLE:1,
+    FACEBOOK:2,
+    MALE:0,
+    FEMALE:1,
+    VERIFY_EMAIL_TEMPLATE:"verifyPassword",
+    RESET_PASSWORD_TEMPLATE:"resetPassword",
+    EMAIL_PATH : "src/views/email"
+}   
